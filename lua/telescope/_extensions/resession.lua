@@ -52,7 +52,7 @@ local resession_opts = {
         return true
     end,
 
-    sorter = sorters.get_generic_fuzzy_sorter(),
+    sorter = sorters.get_fzy_sorter(),
 }
 
 local function resession_picker()
