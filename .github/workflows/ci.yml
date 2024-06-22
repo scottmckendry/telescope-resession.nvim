@@ -22,12 +22,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-
-            - name: Install Selene
-              run: cargo install selene
-
             - name: Run Selene
-              run: selene --display-style quiet --config ./.selene.toml lua
+              uses: AlejandroSuero/selene-linter-action@v1.0.0
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  args: --display-style=quiet --config .selene.toml .
+                  version: 0.27.1
 
     codespell:
         runs-on: ubuntu-latest
