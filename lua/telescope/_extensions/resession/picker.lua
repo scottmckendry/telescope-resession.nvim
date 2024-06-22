@@ -13,7 +13,7 @@ function M.delete_session(prompt_bufnr)
     local opts = require("telescope._extensions.resession.config").opts
     local session = action_state.get_selected_entry()
     local encoded = utils.encode_session(session[1], opts)
-    require("resession").delete(encoded, { dir = "dirsession" })
+    require("resession").delete(encoded, { dir = opts.dir })
 
     -- Refresh the picker
     actions.close(prompt_bufnr)
@@ -27,7 +27,7 @@ function M.load_session(prompt_bufnr)
     local session = action_state.get_selected_entry()
     local encoded = utils.encode_session(session[1], opts)
     actions.close(prompt_bufnr)
-    require("resession").load(encoded, { dir = "dirsession" })
+    require("resession").load(encoded, { dir = opts.dir })
 end
 
 --- Render the session picker

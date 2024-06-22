@@ -51,16 +51,17 @@ M.decode_sessions = function(sessions, opts)
 end
 
 --- Get a list of sessions from resession
+--- @param opts config telescope-resession configuration
 --- @return string[] The list of sessions
-M.get_sessions = function()
-    return require("resession").list({ dir = "dirsession" })
+M.get_sessions = function(opts)
+    return require("resession").list({ dir = opts.dir })
 end
 
 --- Get a list of sessions from resession and decode them
 --- @param opts config telescope-resession configuration
 --- @return string[] The list of decoded sessions
 M.get_results = function(opts)
-    return M.decode_sessions(M.get_sessions(), opts)
+    return M.decode_sessions(M.get_sessions(opts), opts)
 end
 
 return M

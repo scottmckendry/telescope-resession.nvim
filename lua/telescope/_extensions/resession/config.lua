@@ -8,6 +8,7 @@ local M = {}
 --- @field path_substitutions? substitution[] A list of substitutions to apply to paths
 M.defaults = {
     path_substitutions = {},
+    dir = "session",
 }
 
 M.opts = {}
