@@ -4,7 +4,7 @@ local M = {}
 --- @param session_str string The session string to encode
 --- @return string The encoded session string
 M.encode_session = function(session_str)
-    session_str = session_str:gsub(":\\", "__"):gsub("\\", "_")
+    session_str = session_str:gsub(":/", "__"):gsub("/", "_")
     return session_str
 end
 
@@ -15,7 +15,7 @@ end
 --- @return string[] The decoded session strings
 M.decode_sessions = function(sessions)
     for i, session in ipairs(sessions) do
-        sessions[i] = session:gsub("__", ":\\"):gsub("_", "\\")
+        sessions[i] = session:gsub("__", ":/"):gsub("_", "/")
     end
     return sessions
 end
