@@ -12,19 +12,21 @@ local M = {}
 --- Load the selected session
 ---@param prompt_bufnr number
 function M.load_session(prompt_bufnr)
+    local opts = require("telescope._extensions.resession.config").opts
     local session = action_state.get_selected_entry()
-    local encoded = utils.encode_session(session[1])
+    local encoded = utils.encode_session(session[1], opts)
     actions.close(prompt_bufnr)
     require("resession").load(encoded, { dir = "dirsession" })
 end
 
 --- Render the session picker
 function M.resession_picker()
+    local opts = require("telescope._extensions.resession.config").opts
     local dropdown = themes.get_dropdown({})
     local resession_opts = {
         prompt_title = "Find session",
         finder = require("telescope.finders").new_table({
-            results = utils.get_results(),
+            results = utils.get_results(opts),
         }),
 
         attach_mappings = function(_, map)
