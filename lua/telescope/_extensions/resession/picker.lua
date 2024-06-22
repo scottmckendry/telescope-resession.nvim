@@ -7,7 +7,18 @@ local utils = require("telescope._extensions.resession.utils")
 
 local M = {}
 
--- TODO: add mapping to delete sessions
+-- Delete the selected session
+---@param prompt_bufnr number
+function M.delete_session(prompt_bufnr)
+    local opts = require("telescope._extensions.resession.config").opts
+    local session = action_state.get_selected_entry()
+    local encoded = utils.encode_session(session[1], opts)
+    require("resession").delete(encoded, { dir = "dirsession" })
+
+    -- Refresh the picker
+    actions.close(prompt_bufnr)
+    M.resession_picker()
+end
 
 --- Load the selected session
 ---@param prompt_bufnr number
@@ -32,6 +43,8 @@ function M.resession_picker()
         attach_mappings = function(_, map)
             map("i", "<CR>", M.load_session)
             map("n", "<CR>", M.load_session)
+            map("i", "<C-d>", M.delete_session)
+            map("n", "<C-d>", M.delete_session)
             return true
         end,
 
