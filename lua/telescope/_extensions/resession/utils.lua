@@ -30,12 +30,7 @@ end
 --- @param opts config telescope-resession configuration
 --- @return string The encoded session string
 M.encode_session = function(session_str, opts)
-    local user_substitutions = opts.path_substitutions
-
-    if user_substitutions == {} then
-        print("No path substitutions defined. Using default substitutions.")
-    end
-
+    local user_substitutions = opts.path_substitutions or {}
     session_str = M.apply_substitutions(session_str, user_substitutions, true)
     session_str = M.apply_substitutions(session_str, internal_substitutions)
 
