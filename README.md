@@ -69,6 +69,13 @@ Lua:
 require("telescope").extensions.resession.resession()
 ```
 
+**Prompt Key Maps:**
+
+| Mode           | Key Mapping | Description                 |
+| -------------- | ----------- | --------------------------- |
+| Normal, Insert | `<CR>`      | Load the selected session   |
+| Normal, Insert | `<C-d>`     | Delete the selected session |
+
 ## 🎨 Customization
 
 ```lua
