@@ -7,8 +7,9 @@ local M = {}
 --- @class config
 --- @field path_substitutions? substitution[] A list of substitutions to apply to paths
 M.defaults = {
-    path_substitutions = {},
+    prompt_title = "Find Session",
     dir = "session",
+    path_substitutions = {},
 }
 
 M.opts = {}

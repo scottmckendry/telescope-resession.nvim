@@ -35,7 +35,7 @@ function M.resession_picker()
     local opts = require("telescope._extensions.resession.config").opts
     local dropdown = themes.get_dropdown({})
     local resession_opts = {
-        prompt_title = "Find session",
+        prompt_title = opts.prompt_title,
         finder = require("telescope.finders").new_table({
             results = utils.get_results(opts),
         }),
