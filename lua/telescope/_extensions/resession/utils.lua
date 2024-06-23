@@ -1,5 +1,5 @@
 local M = {}
-local internal_substitutions = {
+M.internal_substitutions = {
     { find = ":/", replace = "__" },
     { find = "/", replace = "_" },
 }
@@ -32,7 +32,7 @@ end
 M.encode_session = function(session_str, opts)
     local user_substitutions = opts.path_substitutions or {}
     session_str = M.apply_substitutions(session_str, user_substitutions, true)
-    session_str = M.apply_substitutions(session_str, internal_substitutions)
+    session_str = M.apply_substitutions(session_str, M.internal_substitutions)
 
     return session_str
 end
@@ -43,7 +43,7 @@ end
 --- @return string[] The decoded session strings
 M.decode_sessions = function(sessions, opts)
     for i, session in ipairs(sessions) do
-        session = M.apply_substitutions(session, internal_substitutions, true)
+        session = M.apply_substitutions(session, M.internal_substitutions, true)
         session = M.apply_substitutions(session, opts.path_substitutions)
         sessions[i] = session
     end
