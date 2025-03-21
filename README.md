@@ -1,10 +1,12 @@
 # 🔭 pick-resession.nvim
 
-A telescope extension that adds a session picker to the wonderful [resession.nvim](https://github.com/stevearc/resession.nvim) plugin.
+A picker plugin for the wonderful [resession.nvim](https://github.com/stevearc/resession.nvim) plugin, with support for both Telescope and Snacks pickers.
 
 ![image](https://github.com/scottmckendry/pick-resession.nvim/assets/39483124/93fb9c3d-1345-4f74-a37d-b8e520116362)
 
-## 📦 Extension Installation
+## 📦 Installation & Setup
+
+### With Telescope
 
 ```lua
 {
@@ -15,14 +17,21 @@ A telescope extension that adds a session picker to the wonderful [resession.nvi
             -- Other telescope config...
             extensions = {
                 resession = {
-                        prompt_title = "Find Sessions", -- telescope prompt title
-                        dir = "session", -- directory where resession stores sessions
-                    },
+                    prompt_title = "Find Sessions", -- telescope prompt title
+                    dir = "session", -- directory where resession stores sessions
                 },
             },
         })
     end,
 }
+```
+
+### With Snacks Picker
+
+```lua
+-- No setup is required when using the defaults
+-- Can be added a dependency for snacks or ressession configs, if desired
+{ "scottmckendry/pick-resession.nvim" },
 ```
 
 ## ⏪ Recommended Resession Configuration
@@ -57,36 +66,58 @@ return {
 
 ## 🚀 Usage
 
-Vim command:
+With Telescope:
 
 ```vim
 :Telescope resession
 ```
 
-Lua:
-
 ```lua
 require("telescope").extensions.resession.resession()
 ```
 
-**Prompt Key Maps:**
+With Snacks Picker:
 
-| Mode           | Key Mapping | Description                 |
-| -------------- | ----------- | --------------------------- |
-| Normal, Insert | `<CR>`      | Load the selected session   |
-| Normal, Insert | `<C-d>`     | Delete the selected session |
+```lua
+require("pick-resession").pick()
+```
+
+**Key Maps:**
+
+| Picker | Mode           | Key Mapping | Description                 |
+| ------ | -------------- | ----------- | --------------------------- |
+| Both   | Normal, Insert | `<CR>`      | Load the selected session   |
+| Both   | Normal, Insert | `<C-d>`     | Delete the selected session |
 
 ## 🎨 Customization
+
+### Telescope Configuration
 
 ```lua
 extensions = {
     resession = {
         prompt_title = "Your custom prompt title",
-
-        -- Apply custom path substitutions to the session paths
         path_substitutions = {
             { find = "/home/username", replace = "🏠" },
         },
     },
 },
+```
+
+### Snacks Picker Configuration
+
+```lua
+require("pick-resession").setup({
+    prompt_title = "Your custom prompt title",
+    layout = "dropdown", -- "default", "dropdown", "ivy", "select", "vscode"
+    default_icon = {
+        icon = "📁",
+        highlight = "Directory"
+    },
+    -- These are processed in order, so put more specific matches first
+    path_icons = {
+        { match = "/home/username/projects", icon = "🛠️", highlight = "Special" },
+        { match = "/home/username", icon = "🏠", highlight = "Directory" },
+    },
+})
 ```
