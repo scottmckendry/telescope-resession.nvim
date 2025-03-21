@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.0.0](https://github.com/scottmckendry/pick-resession.nvim/compare/v0.1.0...v1.0.0) (2025-03-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* rename plugin to reflect multi-picker support
+
+### Features
+
+* add support for snacks picker ([af29d61](https://github.com/scottmckendry/pick-resession.nvim/commit/af29d61a244d1c40a5d9049fc8b24eabe0409107))
+* rename plugin to reflect multi-picker support ([a869d9d](https://github.com/scottmckendry/pick-resession.nvim/commit/a869d9d6658d9264a87a60ab10777c8887b4d93b))
+
+
+### Bug Fixes
+
+* **ci:** resolve nvim install error ([cbea136](https://github.com/scottmckendry/pick-resession.nvim/commit/cbea136e99915e050feee1f202a7beb253a87b4e))
+
 ## 0.1.0 (2024-06-23)
 
 
