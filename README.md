@@ -1,15 +1,15 @@
-# 🔭 telescope-resession.nvim
+# 🔭 pick-resession.nvim
 
 A telescope extension that adds a session picker to the wonderful [resession.nvim](https://github.com/stevearc/resession.nvim) plugin.
 
-![image](https://github.com/scottmckendry/telescope-resession.nvim/assets/39483124/93fb9c3d-1345-4f74-a37d-b8e520116362)
+![image](https://github.com/scottmckendry/pick-resession.nvim/assets/39483124/93fb9c3d-1345-4f74-a37d-b8e520116362)
 
 ## 📦 Extension Installation
 
 ```lua
 {
     "nvim-telescope/telescope.nvim",
-    dependencies = { "scottmckendry/telescope-resession.nvim" },
+    dependencies = { "scottmckendry/pick-resession.nvim" },
     config = function()
         telescope.setup({
             -- Other telescope config...
