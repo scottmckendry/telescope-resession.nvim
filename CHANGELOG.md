@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/scottmckendry/pick-resession.nvim/compare/v1.0.0...v1.0.1) (2025-03-22)
+
+
+### Performance Improvements
+
+* avoid uneccesary require on snacks init ([fd48520](https://github.com/scottmckendry/pick-resession.nvim/commit/fd48520710897f6f8cf7e91ea5b3e98a73d9eaf1))
+
 ## [1.0.0](https://github.com/scottmckendry/pick-resession.nvim/compare/v0.1.0...v1.0.0) (2025-03-21)
 
 
