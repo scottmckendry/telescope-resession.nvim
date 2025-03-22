@@ -1,8 +1,4 @@
 local M = {}
-local ok, picker = pcall(require, "snacks.picker")
-if not ok then
-    return
-end
 
 --- @class pickresession.Config
 --- @field prompt_title? string
@@ -51,7 +47,7 @@ local function generate_sessions()
 end
 
 M.pick = function()
-    picker.pick({
+    require("snacks").picker.pick({
         title = M.config.prompt_title,
         finder = generate_sessions,
         layout = M.config.layout,
